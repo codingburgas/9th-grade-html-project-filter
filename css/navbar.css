@@ -84,3 +84,16 @@ nav a:hover {
 #theme-switch select::picker-icon {
     margin: 0;
 }
+
+nav a#report {
+	color: light-dark(var(--accent-900), var(--accent-900));
+	background-color: light-dark(var(--accent-500), var(--accent-400));
+}
+
+nav a#report:hover {
+	box-shadow:
+        inset 0 1px 2px -1px light-dark(var(--neutral-600), transparent),
+        0 0 0 1px light-dark(var(--accent-900), transparent),
+        0 0.5px 1px 1px light-dark(var(--neutral-700), transparent);
+	background-color: light-dark(var(--accent-600), var(--accent-500));
+}
