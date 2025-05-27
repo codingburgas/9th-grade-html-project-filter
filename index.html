@@ -4,16 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Начало</title>
+    <link rel="stylesheet" href="css/colors.css">
     <link rel="stylesheet" href="css/index.css">
-    <script src="js/theme-toggle.js" defer></script>
-
+    <script src="js/color-scheme-core.js"></script>
+    <script src="js/color-scheme-init.js"></script>
+    <script src="js/color-scheme-switch.js" type="module"></script>
 </head>
 <body>
     <nav class="navbar">
         <a href="index.html">Начало</a>
         <a href="#centres">Центрове</a>
         <a href="#events">Събития</a>
-        <a href="#" id="theme-toggle">Тема</a>
+        <div id="theme-switch">
+            <button>Тема</button>
+            <select>
+                <button></button>
+                <option value="0">Системна</option>
+                <option value="1">Тъмна</option>
+                <option value="2">Светла</option>
+            </select>
+        </div>
     </nav>
 
     <p>Тест за смяна на темата</p>

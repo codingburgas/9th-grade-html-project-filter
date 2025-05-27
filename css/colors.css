@@ -1,0 +1,31 @@
+:root {
+	/* Color palette */
+
+	/* Accent for special content */
+	--accent-100: #1c0000;
+	--accent-200: #2a0000;
+	--accent-300: #9a0505;
+	--accent-400: #ce0808;
+	--accent-500: #f00b0b;
+	--accent-600: #ff3232;
+	--accent-700: #ff7272;
+	--accent-800: #ffb5b5;
+	--accent-900: #ffe7e7;
+
+	/* Neutrals for normal content */
+	--neutral-100: #000;
+	--neutral-200: #222;
+	--neutral-300: #444;
+	--neutral-400: #666;
+	--neutral-500: #888;
+	--neutral-600: #aaa;
+	--neutral-700: #ccc;
+	--neutral-800: #eee;
+	--neutral-900: #fff;
+
+	color-scheme: light;
+}
+
+:root.dark {
+	color-scheme: dark;
+}
