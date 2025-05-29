@@ -7,4 +7,3 @@ body {
     transition: background-color 0.3s;
     background-color: light-dark(var(--neutral-800), var(--neutral-200));
 }
-
