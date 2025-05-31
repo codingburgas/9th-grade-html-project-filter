@@ -71,7 +71,6 @@ nav a:hover {
 }
 
 #theme-switch select {
-    padding: 0;
     border: none;
     border-radius: 0 0.33rem 0.33rem 0;
 
