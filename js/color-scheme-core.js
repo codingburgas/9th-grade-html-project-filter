@@ -1,11 +1,10 @@
-let cssColorSchemes = ['light dark', 'dark', 'light'];
+// This script contains global objects that have to be shared across
+// module and non-module scripts; therefore, it mustn't be made a module.
 
-function getStoredSchemeIndex() {
+window.cssColorSchemes = ['light dark', 'dark', 'light'];
+
+window.getStoredSchemeIndex = function() {
     let schemeIndex = parseInt(localStorage.getItem('cssColorSchemeIndex'));
 
-    if (isNaN(schemeIndex) || schemeIndex >= cssColorSchemes.length) {
-        return null;
-	}
-
-    return schemeIndex;
+    return isNaN(schemeIndex) ? 0 : schemeIndex;
 }
