@@ -1,9 +1,27 @@
 body {
     margin: 0;
     padding: 0;
-
     font-family: Arial, Helvetica, sans-serif;
-
     transition: background-color 0.3s;
     background-color: light-dark(var(--neutral-800), var(--neutral-200));
+}
+.nav, .button {
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.nav:hover, .button:hover {
+    scale: 1.05;
+}
+
+.nav:active, .button:active {
+    scale: 0.95;
+}
+
+.theme-button {
+    cursor: pointer;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    background-color: light-dark(var(--neutral-800), var(--neutral-300));
+    color: light-dark(var(--accent-200), var(--accent-900));
 }
