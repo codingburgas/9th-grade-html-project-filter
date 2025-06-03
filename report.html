@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/colors.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/report.css">
+    <script src="js/color-scheme-core.js"></script>
+    <script src="js/color-scheme-init.js"></script>
+    <script src="js/report.js" defer></script>
+    <script src="js/color-scheme-switch.js" defer></script>
+</head>
+<body>
+    <nav>
+        <a href="index.html">
+            <button>Върни се</button>
+        </a>
+        <div id="theme-switch">
+            <select>
+                <option value="0">Системна</option>
+                <option value="1">Тъмна</option>
+                <option value="2">Светла</option>
+            </select>
+        </div>
+    </nav>
+
+    <form>
+        <div>
+            <label for="type">Вид бедствия:</label>
+            <select id="type" name="type" onchange="toggleOtherInput()">
+                <option value="fire">Fire</option>
+                <option value="accident">Accident</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+
+        <div id="other" style="display: none;">
+            <label for="otherInput">Обяснете ситуацията:</label>
+            <input type="text" id="otherInput" name="otherInput">
+        </div>
+        <div>
+            <label for="count">Брой пожарогасители:</label>
+            <select id="count" name="count">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+        <div>
+            <label for="location">Местоположение (кординати) :</label>
+            <input type="text" id="location" name="location">
+        </div>
+
+        <div id="inputs">
+        
+        </div>
+
+        <button type="submit">Изпрати</button>
+    </form>
+</body>
+</html>
