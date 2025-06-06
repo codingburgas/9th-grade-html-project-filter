@@ -4,21 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/colors.css">
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/report.css">
-    <script src="js/color-scheme-core.js"></script>
-    <script src="js/color-scheme-init.js"></script>
-    <script src="js/report.js" defer></script>
-    <script src="js/color-scheme-switch.js" defer></script>
+    <link rel="stylesheet" href="../css/colors.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/report.css">
+    <script src="../js/color-scheme-core.js"></script>
+    <script src="../js/color-scheme-init.js"></script>
+    <script src="../js/report.js" defer></script>
+    <script src="../js/color-scheme-switch.js" type="module"></script>
 </head>
 <body>
     <nav>
-        <a href="index.html">
+        <a href="../index.html">
             <button>Върни се</button>
         </a>
         <div id="theme-switch">
+            <button class="button">Тема</button>
             <select>
+                <button></button>
                 <option value="0">Системна</option>
                 <option value="1">Тъмна</option>
                 <option value="2">Светла</option>
@@ -30,15 +32,15 @@
         <div>
             <label for="type">Вид бедствия:</label>
             <select id="type" name="type" onchange="toggleOtherInput()">
-                <option value="fire">Fire</option>
-                <option value="accident">Accident</option>
-                <option value="other">Other</option>
+                <option value="fire">Пожар</option>
+                <option value="accident">Инцидент</option>
+                <option value="other">Друго</option>
             </select>
         </div>
 
         <div id="other" style="display: none;">
-            <label for="otherInput">Обяснете ситуацията:</label>
-            <input type="text" id="otherInput" name="otherInput">
+            <label for="other-input">Обяснете ситуацията:</label>
+            <input type="text" id="other-input" name="other-input">
         </div>
         <div>
             <label for="count">Брой пожарогасители:</label>

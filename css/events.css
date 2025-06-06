@@ -1,0 +1,30 @@
+#filters {
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+    margin: 12px auto;
+    max-width: 800px;
+    border: 1px solid light-dark(var(--neutral-400), var(--neutral-600));
+    border-radius: 4px;
+    background-color: light-dark(var(--neutral-800), var(--neutral-300));
+}
+#search-container {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+#search {
+    padding: 6px;
+    border-radius: 4px;
+    border: 1px solid light-dark(var(--neutral-400), var(--neutral-600));
+}
+#filter-type {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+#type {
+    padding: 6px;
+    border-radius: 4px;
+    border: 1px solid light-dark(var(--neutral-400), var(--neutral-600));
+}
