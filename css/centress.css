@@ -1,0 +1,83 @@
+.card-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.box-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    justify-items: center;
+    align-items: center;
+}
+
+.card {
+    width: 300px;
+    border: 1px solid #ccc;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    background-color: white;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.info-bar {
+    text-align: center;
+    padding: 10px 5px;
+    border-top: 1px solid #ccc;
+}
+
+.info-bar .title{
+    margin-top: 4px;
+    font-weight: bold;
+    font-size: 16px;
+    color: black;
+}
+
+.info {
+    margin-top: 6px;
+    margin-bottom: 3px;
+    color: black;
+}
+
+.action-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.action-button {
+    width: 50%;
+    border: 1px solid black;
+    background-color: white;
+    padding: 10px 0;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition-duration: 0.4s;
+    color: black;
+}
+
+.action-button:hover {
+    background-color: #c62020;
+    color: white;
+}
+
+.action-link {
+    width: 50%;
+    text-decoration: none;
+}
+
+.action-link button {
+    width: 100%;
+}
