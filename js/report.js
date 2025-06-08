@@ -55,12 +55,10 @@ function handleSubmit(event) {
             alert('Докладът е изпратен успешно!');
             location.reload();
         })
-        .catch(err => {
-            alert('Възникна грешка при запазване на доклада. Моля, опитайте отново.');
-        });
 }
 
 count.addEventListener('change', dropDownAmount);
 form.addEventListener('submit', handleSubmit);
+typeSelect.addEventListener('change', toggleOtherInput);
 
 dropDownAmount();
