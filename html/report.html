@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../css/report.css">
     <script src="../js/color-scheme-core.js"></script>
     <script src="../js/color-scheme-init.js"></script>
-    <script src="../js/report.js" defer></script>
+    <script src="../js/report.js" type="module"></script>
     <script src="../js/color-scheme-switch.js" type="module"></script>
 </head>
 <body>
@@ -32,7 +32,7 @@
     <form>
         <div>
             <label for="type">Вид бедствия:</label>
-            <select id="type" name="type" onchange="toggleOtherInput()">
+            <select id="type" name="type">
                 <option value="fire">Пожар</option>
                 <option value="accident">Инцидент</option>
                 <option value="other">Друго</option>
