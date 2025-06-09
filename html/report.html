@@ -15,35 +15,40 @@
 </head>
 <body>
     <nav>
-        <a href="../index.html">
-            <button>Върни се</button>
-        </a>
-        <div id="theme-switch">
-            <button class="button">Тема</button>
-            <select>
-                <button></button>
-                <option value="0">Системна</option>
-                <option value="1">Тъмна</option>
-                <option value="2">Светла</option>
-            </select>
-        </div>
+        <ul>
+            <li><a href="../index.html" class="nav">Начало</a></li>
+            <li><a href="centres.html" class="nav">Центрове</a></li>
+            <li><a href="events.html" class="nav">Събития</a></li>
+            <li id="theme-switch">
+                <button class="button">Тема</button>
+                <select>
+                    <button></button>
+                    <option value="0">Системна</option>
+                    <option value="1">Тъмна</option>
+                    <option value="2">Светла</option>
+                </select>
+            </li>
+            <li><a id="report" href="report.html" class="nav">Докладвай</a></li>
+        </ul>
     </nav>
 
+    <div class="form-container">
     <form>
-        <div>
+        <div class="form-group">
             <label for="type">Вид бедствия:</label>
             <select id="type" name="type">
-                <option value="fire">Пожар</option>
-                <option value="accident">Инцидент</option>
-                <option value="other">Друго</option>
+                <option value="">-- Изберете --</option>
+                <option value="fire">🔥 Пожар</option>
+                <option value="accident">🚨 Инцидент</option>
+                <option value="other">🌀 Друго</option>
             </select>
         </div>
 
-        <div id="other" style="display: none;">
+        <div id="other" class="form-group" style="display: none;">
             <label for="other-input">Обяснете ситуацията:</label>
-            <input type="text" id="other-input" name="other-input">
+            <input type="text" id="other-input" name="other-input" placeholder="Пример: Пожар в магазина; Инцидент с автомобил;..">
         </div>
-        <div>
+        <div class="form-group">
             <label for="count">Брой пожарогасители:</label>
             <select id="count" name="count">
                 <option value="1">1</option>
@@ -53,9 +58,9 @@
                 <option value="5">5</option>
             </select>
         </div>
-        <div>
+        <div class="form-group">
             <label for="location">Местоположение (кординати) :</label>
-            <input type="text" id="location" name="location">
+            <input type="text" id="location" name="location" placeholder="Пример: 42.69751, 23.32415">
         </div>
 
         <div id="inputs">
@@ -64,5 +69,6 @@
 
         <button type="submit">Изпрати</button>
     </form>
+    </div>
 </body>
 </html>

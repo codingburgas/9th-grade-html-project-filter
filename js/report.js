@@ -8,7 +8,7 @@ const typeSelect = document.getElementById('type');
 
 function dropDownAmount() {
     inputs.innerHTML =
-      '<div><label>Име на пожарникар :</label><input type="text"></div>'.repeat(+count.value);
+      '<div class="form-group"><label>Име на пожарникар :</label><input type="text" placeholder="Пример: Иван Иванов"></div>'.repeat(+count.value);
 }
 
 function toggleOtherInput() {

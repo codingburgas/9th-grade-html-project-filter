@@ -1,7 +1,6 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
     transition: background-color 0.3s;
     background-color: light-dark(var(--neutral-800), var(--neutral-200));
 }
@@ -12,7 +11,9 @@ form {
     top: calc(50% - 200px);
     padding: 48px;
     border: 2px solid black;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 20px 19px 35px -18px rgba(241,0,48,0.52);
+    -webkit-box-shadow: 20px 19px 35px -18px rgba(241,0,48,0.52);
+    -moz-box-shadow: 20px 19px 35px -18px rgba(241,0,48,0.52);
     width: 500px;
     min-height: 400px;
 }
@@ -21,22 +22,41 @@ form div {
     margin-bottom: 24px;
 }
 
-nav{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 32px;
-    height: 80px;
+.form-group {
+    margin-bottom: 25px;
 }
 
-nav button{
-    padding: 16px 32px;
-    font-size: 18px;
-    box-shadow: 0 2px 4px rgba(0,0,0,.2);
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+select, input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    border: 1px solid #444;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
+    background-color: var(--accent-500);
+    color: var(--neutral-900);
+    font-weight: bold;
     cursor: pointer;
-    background:#787878;
-    color:#fff;
+    transition: background 0.3s ease;
+  }
+
+  select:focus, input:focus {
+    border-color: var(--accent-600);
+    outline: none;
 }
 
+button:hover {
+    background-color: var(--accent-300);
+}
