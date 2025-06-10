@@ -1,4 +1,3 @@
-// Import the database instance
 import database from '../js/database-object.js';
 
 const inputs = document.getElementById('inputs');
@@ -33,6 +32,11 @@ function handleSubmit(event) {
     }
 
     let place = document.getElementById('location').value;
+    let coordinates = place.split(',').map(coord => parseFloat(coord.trim()));
+    if (coordinates.length !== 2 || isNaN(coordinates[0]) || isNaN(coordinates[1])) {
+        alert('Моля въведете валидни координати във формат: 42.69751, 23.32415');
+        return;
+    }
 
     let allInputs = inputs.querySelectorAll('input');
     let names = [];
@@ -43,6 +47,8 @@ function handleSubmit(event) {
     let report = {
         type: disasterType,
         location: place,
+        lat: coordinates[0],
+        lng: coordinates[1],
         firefighters: names,
         date: new Date().toISOString()
     };
