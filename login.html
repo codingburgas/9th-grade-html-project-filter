@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Firefighter Login</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color: white;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container {
+      background-color: rgba(183, 0, 0, 0.9);
+      padding: 2rem;
+      border-radius: 15px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      border: 2px solid #ff4500;
+    }
+
+    h2 {
+      margin-bottom: 1.5rem;
+      color: white;
+      text-shadow: 1px 1px 4px black;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid white;
+      border-radius: 8px;
+      background: #1e1e1e;
+      color: white;
+    }
+
+    input::placeholder {
+      color: white;
+    }
+
+    button {
+      background-color: white;
+      color: rgb(180, 0, 0);
+      padding: 0.75rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      font-weight: bold;
+      font-size: 1rem;
+      transition-duration: 0.4s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    button:hover {
+      background-color: rgb(180, 0, 0);
+      color: white;
+    }
+
+    #toggleForm {
+      margin-top: 1.2rem;
+      font-size: 0.95rem;
+    }
+
+    #toggleForm a {
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #toggleForm a:hover {
+      text-decoration: underline;
+    }
+
+    #errorMsg {
+      min-height: 1.2rem;
+      margin-bottom: 0.8rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 id="formTitle">Login</h2>
+    <form id="authForm">
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="email" id="email" placeholder="Email" style="display: none;" />
+      <input type="password" id="password" placeholder="Password" required />
+      <input type="password" id="repeatPassword" placeholder="Repeat Password" style="display: none;" />
+      <p id="errorMsg"></p>
+      <button id="submitBtn">Login</button>
+    </form>
+    <div id="toggleForm">
+      Don't have an account? <a href="#" id="switchLink">Create one</a>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("authForm");
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+    const repeatPasswordInput = document.getElementById("repeatPassword");
+    const emailInput = document.getElementById("email");
+    const errorMsg = document.getElementById("errorMsg");
+    const formTitle = document.getElementById("formTitle");
+    const switchLink = document.getElementById("switchLink");
+    const submitBtn = document.getElementById("submitBtn");
+    const toggleForm = document.getElementById("toggleForm");
+
+    let isLogin = true;
+
+    function updateFormView() {
+      formTitle.textContent = isLogin ? "Login" : "Create Account";
+      submitBtn.textContent = isLogin ? "Login" : "Create Account";
+      emailInput.style.display = isLogin ? "none" : "block";
+      repeatPasswordInput.style.display = isLogin ? "none" : "block";
+      toggleForm.innerHTML = isLogin
+        ? `Don't have an account? <a href="#" id="switchLink">Create one</a>`
+        : `Already have an account? <a href="#" id="switchLink">Back to login</a>`;
+
+      document.getElementById("switchLink").addEventListener("click", switchFormMode);
+      errorMsg.textContent = "";
+
+      // Clear fields on form switch
+      form.reset();
+    }
+
+    function switchFormMode(mode) {
+      if (mode) mode.preventDefault();
+      isLogin = !isLogin;
+      updateFormView();
+    }
+
+    switchLink.addEventListener("click", switchFormMode);
+
+    form.addEventListener("submit", function (mode) 
+    {
+      mode.preventDefault();
+
+      const username = usernameInput.value.trim();
+      const password = passwordInput.value;
+      const repeatPassword = repeatPasswordInput.value;
+      const email = emailInput.value.trim();
+
+      if (!username || !password || (!isLogin && (!email || !repeatPassword))) 
+      {
+        errorMsg.style.color = "red";
+        errorMsg.textContent = "Please fill in all fields.";
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!isLogin && !emailRegex.test(email)) 
+      {
+        errorMsg.style.color = "red";
+        errorMsg.textContent = "Please enter a valid email address.";
+        return;
+      }
+
+      if (!isLogin && password !== repeatPassword) 
+      {
+        errorMsg.style.color = "red";
+        errorMsg.textContent = "Passwords do not match.";
+        return;
+      }
+
+      const storedUsers = JSON.parse(localStorage.getItem("users") || "{}");
+
+      if (isLogin) 
+      {
+        const matchedUser = Object.entries(storedUsers).find(
+          ([uname, data]) => (uname === username || data.email === username) && data.password === password
+        );
+
+        if (matchedUser) 
+        {
+          errorMsg.style.color = "lightgreen";
+          errorMsg.textContent = "Login successful! Redirecting...";
+          setTimeout(() => {
+            window.location.href = "index.html";
+          }, 1000);
+        } 
+        else 
+        {
+          errorMsg.style.color = "red";
+          errorMsg.textContent = "Invalid username/email or password.";
+        }
+      } 
+      else 
+      {
+        if (storedUsers[username]) 
+        {
+          errorMsg.style.color = "red";
+          errorMsg.textContent = "Username already exists.";
+        } 
+        else if (Object.values(storedUsers).some(user => user.email === email)) 
+        {
+          errorMsg.style.color = "red";
+          errorMsg.textContent = "Email already registered.";
+        } 
+        else 
+        {
+          storedUsers[username] = { password, email };
+          localStorage.setItem("users", JSON.stringify(storedUsers));
+          errorMsg.style.color = "lightgreen";
+          errorMsg.textContent = "Account created! Redirecting to login...";
+          setTimeout(() => {
+            isLogin = true;
+            updateFormView();
+          }, 1000);
+        }
+      }
+    });
+
+    // Initialize form view
+    updateFormView();
+  </script>
+</body>
+</html>
