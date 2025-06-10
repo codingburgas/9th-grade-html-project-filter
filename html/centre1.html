@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Centre1</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <link rel="stylesheet" href="../css/font.css">
     <link rel="stylesheet" href="../css/colors.css">
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/events.css">
+    <link rel="stylesheet" href="../css/center-page.css">
     <script src="../js/color-scheme-core.js"></script>
     <script src="../js/color-scheme-init.js"></script>
     <script src="../js/color-scheme-switch.js" type="module"></script>
+    <script src="../js/centre-modal.js"></script>
 </head>
 <body>
     <nav>
@@ -31,6 +35,183 @@
             <li><a id="report" href="../html/report.html" class="nav">Докладвай</a></li>
         </ul>
     </nav>
-    <p>This is centre 1</p>
+
+    <section id="info">
+    <h2>Информация за Обслужваната Територия</h2>
+    <div class="info-block">
+      <p><strong>РСПБЗН - Ловеч</strong> обслужва територия от 1645 кв. км с население около 60 012 жители:</p>
+      <ul>
+        <li><strong>Община Ловеч</strong>: 931 кв.км, 35 населени места, 49 738 души</li>
+        <li><strong>Община Летница</strong>: 177 кв.км, 4 населени места, около 3 776 души</li>
+        <li><strong>Община Угърчин</strong>: 536 кв.км, 11 населени места, около 6 505 души</li>
+      </ul>
+      <p><strong>Адрес:</strong> гр. Ловеч 5500, ул. „Александър Кусев” № 20<br>
+      <strong>Телефон:</strong> 068 668 374<br>
+      <strong>Email:</strong> fscp-rs-lovech@mvr.bg<br>
+      <strong>Приемно време:</strong> Сряда, 14:00–16:00</p>
+    </div>
+  </section>
+
+  <section id="map-section">
+    <h2>Локация на Центъра</h2>
+    <div id="map"></div>
+  </section>
+
+  <section id="team">
+    <h2>Екип</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Екип</th>
+          <th>Име</th>
+          <th>Длъжност</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>A</td>
+          <td>Георги Стоев</td>
+          <td>Шофьор</td>
+        </tr>
+        <tr>
+          <td>A</td>
+          <td>Мария Георгиева</td>
+          <td>Пожарникар</td>
+        </tr>
+        <tr>
+          <td>A</td>
+          <td>Иван Методиев</td>
+          <td>Пожарникар</td>
+        </tr>
+        <tr>
+          <td>A</td>
+          <td>Михаил Миков</td>
+          <td>Спасител</td>
+        </tr>
+        <tr>
+          <td>A</td>
+          <td>Екатерина Георгиева</td>
+          <td>Спасител</td>
+        </tr>
+        <tr>
+          <td style="background-color: #c62020;"></td>
+          <td style="background-color: #c62020;"></td>
+          <td style="background-color: #c62020;"></td>
+        </tr>
+        <tr>
+          <td>Б</td>
+          <td>Николай Петров</td>
+          <td>Шофьор</td>
+        </tr>
+        <tr>
+          <td>Б</td>
+          <td>Георги Николов</td>
+          <td>Пожарникар</td>
+        </tr>
+        <tr>
+          <td>Б</td>
+          <td>Мария Иванова</td>
+          <td>Пожарникар</td>
+        </tr>
+        <tr>
+          <td>Б</td>
+          <td>Христо Тодоров</td>
+          <td>Спасител</td>
+        </tr>
+        <tr>
+          <td>Б</td>
+          <td>Йоана Алексиева</td>
+          <td>Спасител</td>
+        </tr>
+        <tr>
+          <td style="background-color: #c62020;"></td>
+          <td style="background-color: #c62020;"></td>
+          <td style="background-color: #c62020;"></td>
+        </tr>
+        <tr>
+          <td >В</td>
+          <td>Петър Василев</td>
+          <td>Шофьор</td>
+        </tr>
+        <tr>
+          <td>В</td>
+          <td>Мартин Ангелов</td>
+          <td>Пожарникар</td>
+        </tr>
+        <tr>
+          <td>В</td>
+          <td>Калин Симеонов</td>
+          <td>Пожарникар</td>
+        </tr>
+        <tr>
+          <td>В</td>
+          <td>Гергана Цветанова</td>
+          <td>Спасител</td>
+        </tr>
+        <tr>
+          <td>В</td>
+          <td>Борислав Миленков</td>
+          <td>Спасител</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="equipment">
+    <h2>Оборудване</h2>
+    <ul>
+      <li>Авто-механична стълба със спасителен кош</li>
+      <li>Товарен автомобил със сменяеми контейнери и кран</li>
+      <li>Моторна шейна</li>
+      <li>2 надуваеми лодки с двигатели</li>
+      <li>Многофункционално UTV превозно средство</li>
+    </ul>
+  </section>
+
+  <section id="engines">
+    <h2>Пожарни Автомобили</h2>
+    <div class="card-row">
+    <div class="card" onclick="showModal('Този автомобил се използва от РСПБЗН - Ловеч, Екип А')">
+      <img src="images.jpg" alt="Fire Truck 1">
+      <div class="info-bar">
+        <div class="title">Iveco Magirus MLF</div>
+        <div class="info">С компактна помпа – резервоар 1000 л</div>
+      </div>
+    </div>
+
+    <div class="card" onclick="showModal('Този автомобил се използва от РСПБЗН - Ловеч, Екип Б')">
+      <img src="images.jpg" alt="Fire Truck 2">
+      <div class="info-bar">
+        <div class="title">Iveco Eurofire</div>
+        <div class="info">Двигател на Eurocargo със среден размер</div>
+      </div>
+    </div>
+
+    <div class="card" onclick="showModal('Този автомобил се използва от РСПБЗН - Ловеч, Екип В')">
+      <img src="images.jpg" alt="Fire Truck 3">
+      <div class="info-bar">
+        <div class="title">Iveco Magirus Dragon X6</div>
+        <div class="info">Спасителна камион с голям капацитет, тип летищен</div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <div id="infoModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModal()">&times;</span>
+      <p id="modal-text"></p>
+    </div>
+  </div>
+
+  <script>
+    const centerCoords = [43.14044295403679, 24.70563628541055];
+    const map = L.map('map').setView(centerCoords, 15);
+    L.tileLayer('https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=VBQPU0NBuEISOoC0ZWoJ', {
+    attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+    }).addTo(map);
+    L.marker(centerCoords).addTo(map)
+    .bindPopup("<b>РСПБЗН - Ловеч</b><br>ул. „Александър Кусев” № 20").openPopup();
+  </script>
 </body>
 </html>

@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centre5</title>
+    <title>Centre4</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <link rel="stylesheet" href="../css/font.css">
     <link rel="stylesheet" href="../css/colors.css">
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/events.css">
+    <link rel="stylesheet" href="../css/center-page.css">
     <script src="../js/color-scheme-core.js"></script>
     <script src="../js/color-scheme-init.js"></script>
     <script src="../js/color-scheme-switch.js" type="module"></script>
+    <script src="../js/centre-modal.js"></script>
 </head>
 <body>
     <nav>
@@ -31,6 +35,179 @@
             <li><a id="report" href="../html/report.html" class="nav">Докладвай</a></li>
         </ul>
     </nav>
-    <p>This is centre 5</p>
+
+  <section id="info">
+    <h2>Информация за Обслужваната Територия</h2>
+    <div class="info-block">
+      <p><strong>РСПБЗН - Ябланица</strong> обслужва територията на община  Ябланица с един град и осем кметства с обща площ 276 кв. км:</p>
+      <ul>
+        <li>Населението на общината е около 7 хиляди души.</li>
+      </ul>
+      <p><strong>Адрес:</strong> гр. Ябланица 5750, ул. “Георги Бенковски” № 13<br>
+      <strong>Телефон:</strong> 068 668 647<br>
+      <strong>Email:</strong> fscp-rs-yablanica@mvr.bg<br>
+      <strong>Приемно време:</strong> сряда от 14:00 ч. до 16:00 ч.</p>
+    </div>
+  </section>
+
+  <section id="map-section">
+    <h2>Локация на Центъра</h2>
+    <div id="map"></div>
+  </section>
+
+  <section id="team">
+    <h2>Екип</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Екип</th>
+          <th>Име</th>
+          <th>Длъжност</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>A</td>
+          <td>Живко Генчев</td>
+          <td>Шофьор</td>
+        </tr>
+        <tr>
+          <td>A</td>
+          <td>Тихомир Бакалов</td>
+          <td>Пожарникар</td>
+        </tr>
+        <tr>
+          <td>A</td>
+          <td>Богомил Дочев</td>
+          <td>Пожарникар</td>
+        </tr>
+        <tr>
+          <td>A</td>
+          <td>Деян Митев</td>
+          <td>Спасител</td>
+        </tr>
+        <tr>
+          <td>A</td>
+          <td>Костадин Райков</td>
+          <td>Спасител</td>
+        </tr>
+        <tr>
+          <td style="background-color: #c62020;"></td>
+          <td style="background-color: #c62020;"></td>
+          <td style="background-color: #c62020;"></td>
+        </tr>
+        <tr>
+          <td>Б</td>
+          <td>Валери Милев</td>
+          <td>Шофьор</td>
+        </tr>
+        <tr>
+          <td>Б</td>
+          <td>Веселин Русев</td>
+          <td>Пожарникар</td>
+        </tr>
+        <tr>
+          <td>Б</td>
+          <td>Здравко Цветков</td>
+          <td>Пожарникар</td>
+        </tr>
+        <tr>
+          <td>Б</td>
+          <td>Йордан Григоров</td>
+          <td>Спасител</td>
+        </tr>
+        <tr>
+          <td>Б</td>
+          <td>Стилян Тончев</td>
+          <td>Спасител</td>
+        </tr>
+        <tr>
+          <td style="background-color: #c62020;"></td>
+          <td style="background-color: #c62020;"></td>
+          <td style="background-color: #c62020;"></td>
+        </tr>
+        <tr>
+          <td>В</td>
+          <td>Антон Славов</td>
+          <td>Шофьор</td>
+        </tr>
+        <tr>
+          <td>В</td>
+          <td>Светослав Кирчев</td>
+          <td>Пожарникар</td>
+        </tr>
+        <tr>
+          <td>В</td>
+          <td>Бойко Чолаков</td>
+          <td>Пожарникар</td>
+        </tr>
+        <tr>
+          <td>В</td>
+          <td>Лъчезар Стаменов</td>
+          <td>Спасител</td>
+        </tr>
+        <tr>
+          <td>В</td>
+          <td>Илко Илиев</td>
+          <td>Спасител</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="equipment">
+    <h2>Оборудване</h2>
+    <ul>
+      <li><strong>Разполага с</strong> 1  ПА среден тип</li>
+      <li>1бр ПА за гасене на горски пожари</li>
+      <li>1 бр. оборудван автомобил за извършване на спасителни дейности при ПТП</li>
+    </ul>
+  </section>
+
+  <section id="engines">
+    <h2>Пожарни Автомобили</h2>
+    <div class="card-row">
+    <div class="card" onclick="showModal('Този автомобил се използва от РСПБЗН - Ябланица, Екип А')">
+      <img src="images.jpg" alt="Fire Truck 1">
+      <div class="info-bar">
+        <div class="title">Iveco Daily 4×4</div>
+        <div class="info">Оборудван с резервоар за вода (до 1 000 л), помпа, маркучи и базово спасително оборудване</div>
+      </div>
+    </div>
+
+    <div class="card" onclick="showModal('Този автомобил се използва от РСПБЗН - Ябланица, Екип Б')">
+      <img src="images.jpg" alt="Fire Truck 2">
+      <div class="info-bar">
+        <div class="title">Tatra 815 6x6</div>
+        <div class="info">С голям воден резервоар (5 000–9 000 л), мощна помпа, пожарогасителна пяна</div>
+      </div>
+    </div>
+
+    <div class="card" onclick="showModal('Този автомобил се използва от РСПБЗН - Ябланица, Екип В')">
+      <img src="images.jpg" alt="Fire Truck 3">
+      <div class="info-bar">
+        <div class="title">DAF CF</div>
+        <div class="info">Оборудван с резервоар 3 000–5 000 л и модерна водна помпа</div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <div id="infoModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModal()">&times;</span>
+      <p id="modal-text"></p>
+    </div>
+  </div>
+
+  <script>
+    const centerCoords = [43.02148947109275, 24.101439002703852];
+    const map = L.map('map').setView(centerCoords, 15);
+    L.tileLayer('https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=VBQPU0NBuEISOoC0ZWoJ', {
+    attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+    }).addTo(map);
+    L.marker(centerCoords).addTo(map)
+    .bindPopup("<b>РСПБЗН- Ябланица</b><br>ул. “Георги Бенковски” № 13").openPopup();
+  </script>
 </body>
 </html>

@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Centre4</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <link rel="stylesheet" href="../css/font.css">
     <link rel="stylesheet" href="../css/colors.css">
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/events.css">
+    <link rel="stylesheet" href="../css/center-page.css">
     <script src="../js/color-scheme-core.js"></script>
     <script src="../js/color-scheme-init.js"></script>
     <script src="../js/color-scheme-switch.js" type="module"></script>
+    <script src="../js/centre-modal.js"></script>
 </head>
 <body>
     <nav>
@@ -31,6 +35,177 @@
             <li><a id="report" href="../html/report.html" class="nav">Докладвай</a></li>
         </ul>
     </nav>
-    <p>This is centre 4</p>
+
+<section id="info">
+    <h2>Информация за Обслужваната Територия</h2>
+    <div class="info-block">
+      <p><strong>РСПБЗН – Луковит</strong> обслужва  територия от 453,4 кв. км с население около 19 800 жители:</p>
+      <ul>
+        <li>Тя обслужва 12 населени места, от които 1 град и 11 бр. кметства при възникване на пожари и крупни производствени аварии и участва във всички аварийно-спасителни операции на територията на общината.</li>
+      </ul>
+      <p><strong>Адрес:</strong> гр. Луковит 5770, ул. “Йордан Йовков” № 11<br>
+      <strong>Телефон:</strong> 068 668 645<br>
+      <strong>Email:</strong> fscp-rs-lukovit@mvr.bg<br>
+      <strong>Приемно време:</strong> сряда от 14:00 ч. до 16:00 ч.</p>
+    </div>
+  </section>
+
+  <section id="map-section">
+    <h2>Локация на Центъра</h2>
+    <div id="map"></div>
+  </section>
+
+  <section id="team">
+    <h2>Екип</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Екип</th>
+          <th>Име</th>
+          <th>Длъжност</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>A</td>
+          <td>Явор Жеков</td>
+          <td>Шофьор</td>
+        </tr>
+        <tr>
+          <td>A</td>
+          <td>Венцислав Колев</td>
+          <td>Пожарникар</td>
+        </tr>
+        <tr>
+          <td>A</td>
+          <td>Милен Борисов</td>
+          <td>Пожарникар</td>
+        </tr>
+        <tr>
+          <td>A</td>
+          <td>Цветан Недялков</td>
+          <td>Спасител</td>
+        </tr>
+        <tr>
+          <td>A</td>
+          <td>Валентин Христов</td>
+          <td>Спасител</td>
+        </tr>
+        <tr>
+          <td style="background-color: #c62020;"></td>
+          <td style="background-color: #c62020;"></td>
+          <td style="background-color: #c62020;"></td>
+        </tr>
+        <tr>
+          <td>Б</td>
+          <td>Ангел Бояджиев</td>
+          <td>Шофьор</td>
+        </tr>
+        <tr>
+          <td>Б</td>
+          <td>Симеон Горанов</td>
+          <td>Пожарникар</td>
+        </tr>
+        <tr>
+          <td>Б</td>
+          <td>Мартин Лазаров</td>
+          <td>Пожарникар</td>
+        </tr>
+        <tr>
+          <td>Б</td>
+          <td>Красимир Велев</td>
+          <td>Спасител</td>
+        </tr>
+        <tr>
+          <td>Б</td>
+          <td>Емил Ганчев</td>
+          <td>Спасител</td>
+        </tr>
+        <tr>
+          <td style="background-color: #c62020;"></td>
+          <td style="background-color: #c62020;"></td>
+          <td style="background-color: #c62020;"></td>
+        </tr>
+        <tr>
+          <td>В</td>
+          <td>Асен Захариев</td>
+          <td>Шофьор</td>
+        </tr>
+        <tr>
+          <td>В</td>
+          <td>Християн Пейчев</td>
+          <td>Пожарникар</td>
+        </tr>
+        <tr>
+          <td>В</td>
+          <td>Росен Трифонов</td>
+          <td>Пожарникар</td>
+        </tr>
+        <tr>
+          <td>В</td>
+          <td>Любомир Арнаудов</td>
+          <td>Спасител</td>
+        </tr>
+        <tr>
+          <td>В</td>
+          <td>Павел Йорданов</td>
+          <td>Спасител</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="equipment">
+    <h2>Оборудване</h2>
+    <ul>
+      <li>В службата се поддържа оперативно дежурство с 3 бр. ПА.</li>
+    </ul>
+  </section>
+
+  <section id="engines">
+    <h2>Пожарни Автомобили</h2>
+    <div class="card-row">
+    <div class="card" onclick="showModal('Този автомобил се използва от РСПБЗН – Луковит, Екип А')">
+      <img src="images.jpg" alt="Fire Truck 1">
+      <div class="info-bar">
+        <div class="title">IVECO Eurocargo</div>
+        <div class="info">Със среден воден резервоар (обикновено 2,000–4,000 л) и високоефективна помпа</div>
+      </div>
+    </div>
+
+    <div class="card" onclick="showModal('Този автомобил се използва от РСПБЗН – Луковит, Екип Б')">
+      <img src="images.jpg" alt="Fire Truck 2">
+      <div class="info-bar">
+        <div class="title">Renault Midlum</div>
+        <div class="info">С резервоар, помпа и оборудване за спасителни дейности.</div>
+      </div>
+    </div>
+
+    <div class="card" onclick="showModal('Този автомобил се използва от РСПБЗН – Луковит, Екип В')">
+      <img src="images.jpg" alt="Fire Truck 3">
+      <div class="info-bar">
+        <div class="title">Hino 500 Series</div>
+        <div class="info">С голям резервоар (до 5,000+ литра), мощна помпа и защитно оборудване</div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <div id="infoModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModal()">&times;</span>
+      <p id="modal-text"></p>
+    </div>
+  </div>
+
+  <script>
+    const centerCoords = [43.21053922897587, 24.16589934332958];
+    const map = L.map('map').setView(centerCoords, 15);
+    L.tileLayer('https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=VBQPU0NBuEISOoC0ZWoJ', {
+    attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+    }).addTo(map);
+    L.marker(centerCoords).addTo(map)
+    .bindPopup("<b>РСПБЗН – Луковит</b><br>ул. “Йордан Йовков” № 11").openPopup();
+  </script>
 </body>
 </html>
