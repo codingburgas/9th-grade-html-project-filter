@@ -1,36 +1,45 @@
+nav {
+    margin-bottom: 0.5rem;
+}
+
 nav ul {
 	margin: 0;
-	padding: 0.5em;
+	padding: 0.5rem;
 
     display: flex;
 	flex-wrap: wrap;
-    column-gap: 0.5em;
+    gap: 0.2em 0.5em;
 
     box-shadow: 0 1px 1px -1px light-dark(var(--neutral-700), transparent);
     background-color: light-dark(var(--neutral-800), var(--neutral-300));
-    overflow: hidden;
 
 	list-style: none;
 }
 
 nav a {
 	display: block;
-	padding: 0.7em 0.71em;
+	padding: 0.7rem 0.71rem;
 	border-radius: 0.33rem;
 
 	font-size: 1em;
-    font-family: Arial, Helvetica, sans-serif;
 
     color: light-dark(var(--accent-200), var(--accent-900));
     text-decoration: none;
+
+    transition: scale 0.2s ease, background-color 0.2s ease;
 }
 
-nav a:hover {
+nav a:hover, #theme-switch *:hover {
     box-shadow:
         inset 0 1px 2px -1px light-dark(var(--neutral-700), transparent),
         0 0 0 1px light-dark(var(--neutral-800), transparent),
         0 0.5px 1px 1px light-dark(var(--neutral-700), transparent);
     background-color: light-dark(var(--neutral-800), var(--neutral-400));
+    scale: 1.05;
+}
+
+nav a:active, #theme-switch *:active {
+    scale: 0.95;
 }
 
 #theme-switch {
@@ -48,11 +57,6 @@ nav a:hover {
 }
 
 #theme-switch *:hover {
-    box-shadow:
-        inset 0 1px 2px -1px light-dark(var(--neutral-700), transparent),
-        0 0 0 1px light-dark(var(--neutral-800), transparent),
-        0 0.5px 1px 1px light-dark(var(--neutral-700), transparent);
-    background-color: light-dark(var(--neutral-800), var(--neutral-400));
     cursor: pointer;
 }
 
@@ -64,6 +68,8 @@ nav a:hover {
 
     color: light-dark(var(--neutral-200), var(--neutral-900));
     background-color: light-dark(var(--neutral-800), var(--neutral-300));
+
+    transition: scale 0.2s ease, background-color 0.2s ease;
 }
 
 #theme-switch select, #theme-switch select::picker(select) {
