@@ -3,25 +3,25 @@
 
 	/* Accent for special content */
 	--accent-100: #180106;
-	--accent-200: #37040f;
+	--accent-200: #30000a;
 	--accent-300: #6d061b;
 	--accent-400: #ce0808;
 	--accent-500: #f10030;
-	--accent-600: #f64b6d;
-	--accent-700: #ff93a9;
-	--accent-800: #edb2bf;
-	--accent-900: #fde2e7;
+	--accent-600: #f64b4b;
+	--accent-700: #ff9393;
+	--accent-800: #ffcdcd;
+	--accent-900: #fde4e2;
 
 	/* Neutrals for normal content */
-	--neutral-100: #070707;
-	--neutral-200: #242424;
-	--neutral-300: #4f4f4f;
+	--neutral-100: #100808;
+	--neutral-200: #2b2727;
+	--neutral-300: #413939;
 	--neutral-400: #6B6768;
-	--neutral-500: #8c8486;
-	--neutral-600: #b8b5b6;
+	--neutral-500: #91898b;
+	--neutral-600: #a0989a;
 	--neutral-700: #c5bdbf;
-	--neutral-800: #d5d5d5;
-	--neutral-900: #dedddd;
+	--neutral-800: #f1eded;
+	--neutral-900: #f7f3f3;
 
 	color-scheme: light;
 }

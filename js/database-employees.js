@@ -8,6 +8,18 @@ export async function addEmployee(employeeInfoStore, loginsStore, firstName, las
 		}
 	}
 
-	let id = await employeeInfoStore.add({firstName, lastName, crew, role, email});
+	let id = await employeeInfoStore.add({firstName, lastName, crew, role, email, status: 0});
 	loginsStore.add({id, email, password});
+}
+
+export async function changeCrewStatus(employeeInfoStore, crew, newStatus) {
+	let cursor = employeeInfoStore.index('crew').openCursor();
+	while (cursor) {
+		if (cursor.key === crew) {
+			let employee = cursor.value;
+			employee.status = newStatus;
+			employeeInfoStore.put(employee, cursor.key);
+		}
+		cursor = await cursor.continue();
+	}
 }

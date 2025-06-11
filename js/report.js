@@ -1,15 +1,25 @@
 import database from '../js/database-object.js';
+import { changeCrewStatus } from './database-employees.js';
 
 // Get DOM elements
 const inputs = document.getElementById('inputs');
-const count = document.getElementById('count');
+const crews = document.getElementById('crew');
 const form = document.querySelector('form');
 const typeSelect = document.getElementById('type');
 
-// Update the number of firefighter input fields
-function dropDownAmount() {
-    inputs.innerHTML =
-      '<div class="form-group"><label>Име на пожарникар :</label><input type="text" placeholder="Пример: Иван Иванов"></div>'.repeat(+count.value);
+// Fetch available crews
+async function initializeCrews() {
+    let cursor = await database.transaction('employeeInfo', 'readonly').store.index('crew').openCursor(null, 'nextunique');
+
+    while (cursor) {
+        if (cursor.value.status === 0) {
+            let option = document.createElement('option');
+            option.value = cursor.key;
+            option.textContent = cursor.key;
+            crews.appendChild(option);
+        }
+        cursor = await cursor.continue();
+    }
 }
 
 // Show/hide the "other" disaster input
@@ -56,14 +66,14 @@ function handleSubmit(event) {
         location: place,
         lat: coordinates[0],
         lng: coordinates[1],
-        firefighters: names,
+        crew: crews.value,
         date: new Date().toISOString()
     };
 
     // Save report to database
-    let tx = database.transaction('disasters', 'readwrite');
+    let tx = database.transaction(['disasters', 'employeeInfo'], 'readwrite');
     let store = tx.objectStore('disasters');
-
+    changeCrewStatus(tx.objectStore('employeeInfo'), crews.value, 2);
     store.add(report)
         .then(id => {
             alert('Докладът е изпратен успешно!');
@@ -72,9 +82,8 @@ function handleSubmit(event) {
 }
 
 // Event listeners for form and inputs
-count.addEventListener('change', dropDownAmount);
 form.addEventListener('submit', handleSubmit);
 typeSelect.addEventListener('change', toggleOtherInput);
 
 // Initialize input fields
-dropDownAmount();
+initializeCrews();

@@ -17,7 +17,9 @@
         import database from './js/database-object.js';
         window.database = database;
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet/dist/leaflet.min.js"></script>
     <script src="js/map.js" defer="module"></script>
+    <script src="js/statuses.js" type="module"></script>
 </head>
 <body>
     <nav>
@@ -38,5 +40,8 @@
         </ul>
     </nav>
     <div id="map"></div>
+
+    <h2>Екипи</h2>
+    <div id="crews"></div>
 </body>
 </html>

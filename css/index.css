@@ -9,3 +9,19 @@ h2 {
     margin: 2rem 0 1rem;
     padding-left: 1.21rem;
 }
+
+span {
+    padding: 0.2rem;
+}
+
+span.s0 {
+    background-color: #00ff00;
+}
+
+span.s1 {
+    background-color: yellow;
+}
+
+span.s2 {
+    background-color: red;
+}
